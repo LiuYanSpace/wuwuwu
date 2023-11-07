@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on YanYan Blog</title>
-    <link>https://LiuYanSpace.github.io/zh/tags/</link>
+    <link>https://LiuYanSpace.github.io/tags/</link>
     <description>Recent content in Tags on YanYan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 06 Nov 2023 22:18:40 +0800</lastBuildDate><atom:link href="https://LiuYanSpace.github.io/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Nov 2023 22:18:40 +0800</lastBuildDate><atom:link href="https://LiuYanSpace.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>java</title>
-      <link>https://LiuYanSpace.github.io/zh/tags/java/</link>
+      <link>https://LiuYanSpace.github.io/tags/java/</link>
       <pubDate>Mon, 06 Nov 2023 22:18:40 +0800</pubDate>
       
-      <guid>https://LiuYanSpace.github.io/zh/tags/java/</guid>
+      <guid>https://LiuYanSpace.github.io/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>后端</title>
-      <link>https://LiuYanSpace.github.io/zh/tags/%E5%90%8E%E7%AB%AF/</link>
+      <link>https://LiuYanSpace.github.io/tags/%E5%90%8E%E7%AB%AF/</link>
       <pubDate>Mon, 06 Nov 2023 22:18:40 +0800</pubDate>
       
-      <guid>https://LiuYanSpace.github.io/zh/tags/%E5%90%8E%E7%AB%AF/</guid>
+      <guid>https://LiuYanSpace.github.io/tags/%E5%90%8E%E7%AB%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>suanfa</title>
-      <link>https://LiuYanSpace.github.io/zh/tags/suanfa/</link>
+      <link>https://LiuYanSpace.github.io/tags/suanfa/</link>
       <pubDate>Mon, 06 Nov 2023 21:33:51 +0800</pubDate>
       
-      <guid>https://LiuYanSpace.github.io/zh/tags/suanfa/</guid>
+      <guid>https://LiuYanSpace.github.io/tags/suanfa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag 1</title>
-      <link>https://LiuYanSpace.github.io/zh/tags/tag-1/</link>
+      <link>https://LiuYanSpace.github.io/tags/tag-1/</link>
       <pubDate>Fri, 27 Oct 2023 22:56:18 +0800</pubDate>
       
-      <guid>https://LiuYanSpace.github.io/zh/tags/tag-1/</guid>
+      <guid>https://LiuYanSpace.github.io/tags/tag-1/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tag 2</title>
-      <link>https://LiuYanSpace.github.io/zh/tags/tag-2/</link>
+      <link>https://LiuYanSpace.github.io/tags/tag-2/</link>
       <pubDate>Fri, 27 Oct 2023 22:56:18 +0800</pubDate>
       
-      <guid>https://LiuYanSpace.github.io/zh/tags/tag-2/</guid>
+      <guid>https://LiuYanSpace.github.io/tags/tag-2/</guid>
       <description></description>
     </item>
     
