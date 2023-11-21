@@ -92,8 +92,8 @@
   "keywords": [
     "回溯", "组合"
   ],
-  "articleBody": "一、给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。candidates 中的数字可以无限制重复被选取。 说明：\n所有数字（包括 target）都是正整数。 解集不能包含重复的组合。\n示例 1：\n输入：candidates = [2,3,6,7], target = 7, 所求解集为： [ [7], [2,2,3] ]\n示例 2：\n输入：candidates = [2,3,5], target = 8, 所求解集为： [ [2,2,2,2], [2,3,3], [3,5] ]\nclass Solution { List",
-  "wordCount" : "2453",
+  "articleBody": "一、给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。candidates 中的数字可以无限制重复被选取。 说明：\n所有数字（包括 target）都是正整数。 解集不能包含重复的组合。\n示例 1：\n输入：candidates = [2,3,6,7], target = 7, 所求解集为： [ [7], [2,2,3] ]\n示例 2：\n输入：candidates = [2,3,5], target = 8, 所求解集为： [ [2,2,2,2], [2,3,3], [3,5] ]\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 class Solution { List",
+  "wordCount" : "2492",
   "inLanguage": "zh",
   "datePublished": "2023-11-09T18:27:43+08:00",
   "dateModified": "2023-11-09T18:27:43+08:00",
@@ -213,42 +213,93 @@
 <p>示例 2：</p>
 <p>输入：candidates = [2,3,5], target = 8,
 所求解集为： [ [2,2,2,2], [2,3,3], [3,5] ]</p>
-<p>class Solution {
-List&lt;List<Integer>&gt; res = new LinkedList&lt;&gt;();</p>
-<p>public List&lt;List<Integer>&gt; combinationSum(int[] candidates, int target) {
-if (candidates.length == 0) {
-return res;
-}
-backtrack(candidates, 0, target, 0);
-return res;
-}</p>
-<p>// 记录回溯的路径
-LinkedList<Integer> track = new LinkedList&lt;&gt;();</p>
-<p>// 回溯算法主函数
-void backtrack(int[] candidates, int start, int target, int sum) {
-if (sum == target) {
-// 找到目标和
-res.add(new LinkedList&lt;&gt;(track));
-return;
-}</p>
-<p>if (sum &gt; target) {
-// 超过目标和，直接结束
-return;
-}</p>
-<p>// 回溯算法框架
-for (int i = start; i &lt; candidates.length; i++) {
-// 选择 candidates[i]
-track.add(candidates[i]);
-sum += candidates[i];
-// 递归遍历下一层回溯树
-backtrack(candidates, i, target, sum);
-// 撤销选择 candidates[i]
-sum -= candidates[i];
-track.removeLast();
-}
-}
-}</p>
-<p>这段代码是一个Java实现的回溯算法，用于找到给定整数数组 candidates 中的组合，使得这些组合的元素之和等于给定的目标整数 target。代码中使用了递归和回溯的方法来实现这个目标。
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">class Solution {
+</span></span><span class="line"><span class="cl">List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) {
+</span></span><span class="line"><span class="cl">        if (candidates.length == 0) {
+</span></span><span class="line"><span class="cl">            return res;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">        backtrack(candidates, 0, target, 0);
+</span></span><span class="line"><span class="cl">        return res;
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 记录回溯的路径
+</span></span><span class="line"><span class="cl">    LinkedList&lt;Integer&gt; track = new LinkedList&lt;&gt;();
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 回溯算法主函数
+</span></span><span class="line"><span class="cl">    void backtrack(int[] candidates, int start, int target, int sum) {
+</span></span><span class="line"><span class="cl">        if (sum == target) {
+</span></span><span class="line"><span class="cl">            // 找到目标和
+</span></span><span class="line"><span class="cl">            res.add(new LinkedList&lt;&gt;(track));
+</span></span><span class="line"><span class="cl">            return;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        if (sum &gt; target) {
+</span></span><span class="line"><span class="cl">// 超过目标和，直接结束
+</span></span><span class="line"><span class="cl">            return;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">// 回溯算法框架
+</span></span><span class="line"><span class="cl">        for (int i = start; i &lt; candidates.length; i++) {
+</span></span><span class="line"><span class="cl">            // 选择 candidates[i]
+</span></span><span class="line"><span class="cl">            track.add(candidates[i]);
+</span></span><span class="line"><span class="cl">            sum += candidates[i];
+</span></span><span class="line"><span class="cl">            // 递归遍历下一层回溯树
+</span></span><span class="line"><span class="cl">            backtrack(candidates, i, target, sum);
+</span></span><span class="line"><span class="cl">            // 撤销选择 candidates[i]
+</span></span><span class="line"><span class="cl">            sum -= candidates[i];
+</span></span><span class="line"><span class="cl">            track.removeLast();
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这段代码是一个Java实现的回溯算法，用于找到给定整数数组 candidates 中的组合，使得这些组合的元素之和等于给定的目标整数 target。代码中使用了递归和回溯的方法来实现这个目标。
 具体来说，代码的主要结构如下：</p>
 <p>定义了一个类 Solution，其中包含了一个成员变量 res，它是一个列表，用于存储找到的符合条件的组合列表。</p>
 <p>combinationSum 方法是入口方法，接受两个参数：candidates 数组和 target 目标值。首先检查如果 candidates 为空，直接返回空的结果列表 res。否则，调用 backtrack 方法来进行回溯搜索。</p>
@@ -259,20 +310,150 @@ track.removeLast();
 <p>每次递归结束后，要撤销选择，即将当前选择的元素从 track 中移除，同时减去对 sum 的累加。</p>
 <p>这种方法通过不断选择和撤销选择，逐渐构建出符合条件的组合，最终得到所有满足条件的组合列表，存储在 res 中，并返回给调用者。这是一种典型的回溯算法的实现方式，用于解决组合类的问题。
 让我们逐行解读给出的代码：</p>
-<p>List&lt;List<Integer>&gt; res = new LinkedList&lt;&gt;(); - 创建一个列表 res，用于存储最终的组合结果，这里使用了泛型，表示它是一个包含整数列表的列表。</p>
-<p>public List&lt;List<Integer>&gt; combinationSum(int[] candidates, int target) { - 定义了一个公有方法 combinationSum，接受两参数 candidates 和 target，表示要在 candidates 数组中查找和为 target 的组合。</p>
-<p>if (candidates.length == 0) { return res; } - 如果 candidates 数组为空，直接返回空的结果列表 res。</p>
-<p>backtrack(candidates, 0, target, 0); - 否则，调用 backtrack 方法开始回溯搜索，起始位置为 0，目标值为 target，当前累计和为 0。</p>
-<p>LinkedList<Integer> track = new LinkedList&lt;&gt;(); - 创建一个整数链表 track，用于记录回溯的路径，即当前正在考虑的组合。</p>
-<p>void backtrack(int[] candidates, int start, int target, int sum) { - 定义了一个回溯算法的主要函数 backtrack，接受四个参数：candidates 数组，当前搜索的起始位置 start，目标值 target，以及当前累计的和 sum。</p>
-<p>if (sum == target) { res.add(new LinkedList&lt;&gt;(track)); return; } - 如果当前累计和 sum 等于目标值 target，表示找到了一个符合条件的组合，将当前 track 中的元素复制一份并添加到 res 中，然后返回，结束本次搜索。</p>
-<p>if (sum &gt; target) { return; } - 如果当前累计和 sum 超过了目标值 target，直接返回，不再继续搜索，因为这条路径无法得到符合条件的组合。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">List&lt;List&lt;Integer&gt;&gt; res = new LinkedList&lt;&gt;(); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>创建一个列表 res，用于存储最终的组合结果，这里使用了泛型，表示它是一个包含整数列表的列表。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>定义了一个公有方法 combinationSum，接受两参数 candidates 和 target，表示要在 candidates 数组中查找和为 target 的组合。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (candidates.length == 0) { return res; } 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果 candidates 数组为空，直接返回空的结果列表 res。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">backtrack(candidates, 0, target, 0); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>否则，调用 backtrack 方法开始回溯搜索，起始位置为 0，目标值为 target，当前累计和为 0。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LinkedList&lt;Integer&gt; track = new LinkedList&lt;&gt;(); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>创建一个整数链表 track，用于记录回溯的路径，即当前正在考虑的组合。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">void backtrack(int[] candidates, int start, int target, int sum) { 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>定义了一个回溯算法的主要函数 backtrack，接受四个参数：candidates 数组，当前搜索的起始位置 start，目标值 target，以及当前累计的和 sum。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (sum == target) { res.add(new LinkedList&lt;&gt;(track)); return; } 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果当前累计和 sum 等于目标值 target，表示找到了一个符合条件的组合，将当前 track 中的元素复制一份并添加到 res 中，然后返回，结束本次搜索。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">if (sum &gt; target) { return; } 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>如果当前累计和 sum 超过了目标值 target，直接返回，不再继续搜索，因为这条路径无法得到符合条件的组合。</li>
+</ul>
 <p>接下来是回溯算法的核心部分，在循环中遍历 candidates 数组，从当前位置 start 开始。</p>
-<p>track.add(candidates[i]); - 选择当前循环中的元素 candidates[i]，将其添加到 track 中，表示当前正在考虑这个元素。</p>
-<p>sum += candidates[i]; - 更新累计和 sum，将当前选择的元素的值累加到 sum 上。</p>
-<p>backtrack(candidates, i, target, sum); - 递归调用 backtrack 方法，继续搜索下一层的可能性，传入参数为 candidates 数组，起始位置 i，目标值 target，和累计和 sum。</p>
-<p>sum -= candidates[i]; - 递归返回后，撤销选择，即从 sum 中减去当前选择的元素的值。</p>
-<p>track.removeLast(); - 同样，从 track 中移除最后一个元素，表示当前不再考虑这个元素。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">track.add(candidates[i]); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>选择当前循环中的元素 candidates[i]，将其添加到 track 中，表示当前正在考虑这个元素。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sum += candidates[i]; 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更新累计和 sum，将当前选择的元素的值累加到 sum 上。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">backtrack(candidates, i, target, sum); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>递归调用 backtrack 方法，继续搜索下一层的可能性，传入参数为 candidates 数组，起始位置 i，目标值 target，和累计和 sum。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">sum -= candidates[i];
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>递归返回后，撤销选择，即从 sum 中减去当前选择的元素的值。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">track.removeLast(); 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>同样，从 track 中移除最后一个元素，表示当前不再考虑这个元素。</li>
+</ul>
 <p>这样，代码通过不断选择和撤销选择，递归搜索所有可能的组合，找到和为 target 的组合并存储在 res 中。最终，res 包含了所有满足条件的组合。
 三、
 输入: candidates = [2,3,5], target = 8。
@@ -324,6 +505,11 @@ track 变为 [2, 2, 2, 2]，sum 更新为 8。
       <li><a href="https://LiuYanSpace.github.io/zh/tags/%E7%BB%84%E5%90%88/">组合</a></li>
     </ul>
 <nav class="paginav">
+  <a class="prev" href="https://LiuYanSpace.github.io/zh/posts/life/ww/">
+    <span class="title">« 上一页</span>
+    <br>
+    <span>Ww</span>
+  </a>
   <a class="next" href="https://LiuYanSpace.github.io/zh/posts/project/kk/">
     <span class="title">下一页 »</span>
     <br>
