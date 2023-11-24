@@ -5,7 +5,11 @@
     <link>https://LiuYanSpace.github.io/zh/posts/life/</link>
     <description>Recent content in 🐾 生活 on YanYan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <language>zh</language>
+=======
+    <language>zh-cn</language>
+>>>>>>> public
     <lastBuildDate>Tue, 21 Nov 2023 21:41:15 +0800</lastBuildDate><atom:link href="https://LiuYanSpace.github.io/zh/posts/life/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>生活继续</title>

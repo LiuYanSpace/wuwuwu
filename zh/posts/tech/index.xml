@@ -5,7 +5,11 @@
     <link>https://LiuYanSpace.github.io/zh/posts/tech/</link>
     <description>Recent content in 💻 技术 on YanYan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <language>zh</language>
+=======
+    <language>zh-cn</language>
+>>>>>>> public
     <lastBuildDate>Sat, 28 Oct 2023 21:27:17 +0800</lastBuildDate><atom:link href="https://LiuYanSpace.github.io/zh/posts/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lul</title>

@@ -5,6 +5,10 @@
     <link>https://LiuYanSpace.github.io/zh/posts/english/</link>
     <description>Recent content in 🗽 󠁢英语 on YanYan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
+<<<<<<< HEAD
     <language>zh</language><atom:link href="https://LiuYanSpace.github.io/zh/posts/english/index.xml" rel="self" type="application/rss+xml" />
+=======
+    <language>zh-cn</language><atom:link href="https://LiuYanSpace.github.io/zh/posts/english/index.xml" rel="self" type="application/rss+xml" />
+>>>>>>> public
   </channel>
 </rss>
